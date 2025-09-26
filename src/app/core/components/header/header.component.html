@@ -1,0 +1,46 @@
+<header class="header">
+  <div class="header-content">
+    <!-- Logo + Nav -->
+    <div class="nav-section">
+      <img width="110" src="/logo-vlabflix.png" alt="netflix-logo" class="logo">
+      <ul class="nav-list">
+        <li *ngFor="let item of navList" class="nav-item">{{ item }}</li>
+      </ul>
+    </div>
+    <div class="actions-section">
+      <!-- Botão Notificação -->
+      <button class="notification-btn" (click)="onNotificationClick()">
+        <svg class="notification-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path>
+          <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path>
+        </svg>
+      </button>
+
+      <!-- Dropdown Perfil -->
+      <div class="profile-dropdown">
+        <button class="profile-trigger">
+          <div class="avatar">
+            <img src="/profile-icon-2.jpg" alt="Profile" class="avatar-image" />
+            <div class="avatar-fallback">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </div>
+          </div>
+          <svg class="chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <polyline points="6,9 12,15 18,9"></polyline>
+          </svg>
+        </button>
+        
+        <div class="dropdown-content">
+          <button class="dropdown-item" (click)="onProfileAction('profile')">Meu Perfil</button>
+          <button class="dropdown-item" (click)="onProfileAction('settings')">Configurações</button>
+          <button class="dropdown-item" (click)="onProfileAction('help')">Ajuda</button>
+          <div class="dropdown-separator"></div>
+          <button class="dropdown-item logout" (click)="onProfileAction('logout')">Sair</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

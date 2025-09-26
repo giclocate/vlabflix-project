@@ -1,0 +1,44 @@
+.app-container {
+  min-height: 100vh;
+  background-color: #0f172a;
+  display: flex;
+  flex-direction: column;
+
+  .main-content {
+    padding: 2rem 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+
+
+
+    .content-wrapper {
+      margin-bottom: 2rem;
+
+      h1 {
+        font-size: 2.25rem;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      p {
+        font-size: 1.125rem;
+        color: #d1d5db;
+        line-height: 1.6;
+      }
+    }
+
+    app-movie-carousel {
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      padding: 1rem;
+    }
+  }
+}

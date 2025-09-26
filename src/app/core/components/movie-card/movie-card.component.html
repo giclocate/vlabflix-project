@@ -1,0 +1,48 @@
+<!-- Movendo todas as classes Tailwind diretamente para o HTML -->
+<div class="relative bg-gray-900 rounded-lg overflow-hidden cursor-pointer transition-all duration-300 ease-out hover:scale-105 hover:z-10 group w-[280px] min-w-[280px] md:w-[280px] md:min-w-[280px] sm:w-[200px] sm:min-w-[200px] xs:w-[160px] xs:min-w-[160px]" 
+     (click)="onCardClick()"
+     style="box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);"
+     [style.box-shadow]="'0 8px 32px rgba(0, 0, 0, 0.6)'"
+     onmouseover="this.style.boxShadow='0 8px 32px rgba(0, 0, 0, 0.6)'"
+     onmouseout="this.style.boxShadow='0 4px 12px rgba(0, 0, 0, 0.3)'">
+  
+  <div class="relative overflow-hidden" style="aspect-ratio: 2/3;">
+    <img 
+      [src]="movie.poster" 
+      [alt]="movie.title"
+      class="w-full h-full object-cover transition-all duration-300 group-hover:brightness-75"
+      loading="lazy"
+    />
+    <div class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      <button 
+        class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md font-medium transition-all duration-200 flex items-center gap-2 text-sm hover:scale-105"
+        (click)="onAddToMarathon(); $event.stopPropagation()"
+        aria-label="Adicionar à maratona"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4">
+          <path d="M12 5v14M5 12h14"/>
+        </svg>
+        Maratona
+      </button>
+    </div>
+  </div>
+  
+  <div class="p-4 space-y-2 xs:p-3">
+    <h3 class="text-lg font-semibold text-white line-clamp-2 leading-tight group-hover:text-red-400 transition-colors duration-200 xs:text-base">
+      {{ movie.title }}
+    </h3>
+    <div class="flex items-center gap-2 text-sm text-gray-400 flex-wrap">
+      <span class="text-red-400 font-medium">{{ movie.genre }}</span>
+      <span class="text-gray-400" *ngIf="movie.year">• {{ movie.year }}</span>
+      <span class="px-2 py-1 rounded-full text-xs font-medium ml-auto"
+            [class]="movie.type === 'movie' ? 'bg-blue-600 text-white' : 'bg-green-600 text-white'">
+        {{ movie.type === 'movie' ? 'Filme' : 'Série' }}
+      </span>
+    </div>
+    <div class="flex gap-1" *ngIf="movie.rating">
+      <span class="text-sm" 
+            *ngFor="let star of [1,2,3,4,5]" 
+            [class]="star <= (movie.rating || 0) ? 'text-yellow-500' : 'text-gray-600'">★</span>
+    </div>
+  </div>
+</div>

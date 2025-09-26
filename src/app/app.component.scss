@@ -1,0 +1,27 @@
+main {
+  // Layout properties
+  height: 100%;
+  overflow-x: hidden;
+  
+  // Typography
+  color: #c5c5c5; // neutral-200 equivalent
+  
+  // Background
+  background-color: #141414;
+  
+  // Optional: Add some responsive behavior
+  @media (max-width: 768px) {
+    overflow-x: auto; // Allow horizontal scroll on mobile if needed
+  }
+  
+  // Optional: Smooth transitions
+  transition: background-color 0.3s ease;
+  
+  // Ensure proper box-sizing
+  box-sizing: border-box;
+  app-home {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}

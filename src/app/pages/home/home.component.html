@@ -1,0 +1,20 @@
+<div class="app-container">
+
+  <app-header></app-header>
+
+  <!-- Filter fixo no canto -->
+  
+
+  <main class="main-content">
+    <div class="content-wrapper">
+      <h1>Bem-vindo ao VlabFlix</h1>
+      <p>Sua plataforma de streaming favorita com os melhores filmes e séries.</p>
+    </div>
+    <app-filter-panel class="filter-panel"></app-filter-panel>
+    <app-movie-carousel 
+      [videoContents]="popularMovies" 
+      [title]="'Nosso Catálogo:'">
+    </app-movie-carousel>
+  </main>
+
+</div>

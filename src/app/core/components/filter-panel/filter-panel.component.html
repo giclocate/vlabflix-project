@@ -1,0 +1,100 @@
+<div class="filter-panel-container">
+  <div class="filter-header">
+    <h2 class="filter-title">
+      <i class="fas fa-filter"></i>
+      Filtros de Busca
+    </h2>
+    <button class="filter-toggle" (click)="toggleFilters()">
+      <i class="fas fa-chevron-down"></i>
+    </button>
+  </div>
+
+  <div class="filter-content">
+    <div class="filter-grid">
+      <div class="filter-item search-item">
+        <label for="query">
+          <i class="fas fa-search"></i>
+          Buscar Filme
+        </label>
+        <div class="input-wrapper">
+          <input 
+            id="query" 
+            type="text" 
+            [(ngModel)]="filters.query" 
+            (input)="updateFilters()" 
+            placeholder="Digite o nome do filme..."
+            class="modern-input"
+          />
+          <i class="fas fa-times clear-input" 
+             *ngIf="filters.query" 
+             (click)="filters.query = ''; updateFilters()"></i>
+        </div>
+      </div>
+      <div class="filter-item">
+        <label for="genre">
+          <i class="fas fa-theater-masks"></i>
+          Gênero
+        </label>
+        <div class="select-wrapper">
+          <select id="genre" [(ngModel)]="filters.genre" (change)="updateFilters()" class="modern-select">
+            <option value="all">Todos os gêneros</option>
+            <option *ngFor="let genre of genres" [value]="genre">{{ genre }}</option>
+          </select>
+          <i class="fas fa-chevron-down select-arrow"></i>
+        </div>
+      </div>
+
+      <div class="filter-item">
+        <label for="year">
+          <i class="fas fa-calendar-alt"></i>
+          Ano
+        </label>
+        <div class="select-wrapper">
+          <select id="year" [(ngModel)]="filters.year" (change)="updateFilters()" class="modern-select">
+            <option value="all">Todos os anos</option>
+            <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+          </select>
+          <i class="fas fa-chevron-down select-arrow"></i>
+        </div>
+      </div>
+
+      <div class="filter-item">
+        <label for="rating">
+          <i class="fas fa-star"></i>
+          Nota
+        </label>
+        <div class="select-wrapper">
+          <select id="rating" [(ngModel)]="filters.rating" (change)="updateFilters()" class="modern-select">
+            <option value="all">Todas as notas</option>
+            <option *ngFor="let rating of ratings" [value]="rating">{{ rating }}</option>
+          </select>
+          <i class="fas fa-chevron-down select-arrow"></i>
+        </div>
+      </div>
+
+      <div class="filter-item">
+        <label for="duration">
+          <i class="fas fa-clock"></i>
+          Duração
+        </label>
+        <div class="select-wrapper">
+          <select id="duration" [(ngModel)]="filters.duration" (change)="updateFilters()" class="modern-select">
+            <option value="all">Todas as durações</option>
+            <option *ngFor="let duration of durations" [value]="duration">{{ duration }}</option>
+          </select>
+          <i class="fas fa-chevron-down select-arrow"></i>
+        </div>
+      </div>
+    </div>
+    <div class="filter-actions">
+      <button class="btn-clear" (click)="clearFilters()">
+        <i class="fas fa-eraser"></i>
+        Limpar Filtros
+      </button>
+      <button class="btn-apply" (click)="updateFilters()">
+        <i class="fas fa-check"></i>
+        Aplicar
+      </button>
+    </div>
+  </div>
+</div>
