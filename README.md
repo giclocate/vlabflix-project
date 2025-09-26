@@ -1,4 +1,3 @@
----
 # 🎬 VlabFlix
 
 VlabFlix é uma aplicação Angular para exibir filmes populares usando a [API do TMDB](https://www.themoviedb.org/documentation/api).
@@ -136,4 +135,5 @@ src/
 
 Este projeto é de uso pessoal e acadêmico.
 Para mais detalhes sobre a API do TMDB, consulte a [documentação oficial](https://developers.themoviedb.org/3).
+
 
